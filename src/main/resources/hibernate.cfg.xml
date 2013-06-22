@@ -47,7 +47,6 @@
         <mapping resource="model/VOMSGroupAttribute.hbm.xml" />
         <mapping resource="model/VOMSRole.hbm.xml" />
         <mapping resource="model/VOMSRoleAttribute.hbm.xml" />
-        <mapping resource="model/VOMSAttributeDescription.hbm.xml" />
         <mapping resource="model/VOMSCapability.hbm.xml" />
         <mapping resource="model/VOMSMapping.hbm.xml" />
         <mapping resource="model/ACL.hbm.xml" />
@@ -61,6 +60,7 @@
         
         <!--  NEW MAPPINGS -->
 
+        <mapping class="org.glite.security.voms.admin.persistence.model.VOMSAttributeDescription"/>
         <mapping class="org.glite.security.voms.admin.persistence.model.VOMSUserAttribute"/>
 
         <!--  VOMS USER & CERTIFICATE -->
