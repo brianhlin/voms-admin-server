@@ -79,7 +79,7 @@
                 <interceptor-ref name="alias"/>
                 <interceptor-ref name="i18n"/>
                 <interceptor-ref name="params">
-                    <param name="excludeParams">dojo\..*,^struts\..*</param>
+                    <param name="excludeParams">dojo\..*,^struts\..*,token</param>
                 </interceptor-ref>
                 
                 <interceptor-ref name="checkbox"/>
@@ -95,7 +95,7 @@
                 <interceptor-ref name="actionMappingParams"/>
                 
                 <interceptor-ref name="params">
-                    <param name="excludeParams">dojo\..*,^struts\..*</param>
+                    <param name="excludeParams">dojo\..*,^struts\..*,token</param>
                 </interceptor-ref>
                 
                 
