@@ -25,6 +25,7 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 
+        <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
 	 
 	<constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.PrefixBasedActionMapper"/>
 	<constant name="struts.mapper.prefixMapping" value="/apiv2:struts,/shared:struts,/rest:rest,/acl:struts,/admin:struts,/ajax:struts,/attribute:struts,/aup:struts,/configuration:struts,/group:struts,/home:struts,/register:struts,/role:struts,/search:struts,/sibling:struts,/user:struts,:struts"/>
