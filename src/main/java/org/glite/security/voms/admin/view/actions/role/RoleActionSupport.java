@@ -27,6 +27,7 @@ import org.glite.security.voms.admin.persistence.model.VOMSAttributeDescription;
 import org.glite.security.voms.admin.persistence.model.VOMSGroup;
 import org.glite.security.voms.admin.persistence.model.VOMSRole;
 import org.glite.security.voms.admin.view.actions.BaseAction;
+import org.hibernate.Hibernate;
 
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
@@ -54,8 +55,10 @@ public class RoleActionSupport extends BaseAction implements
 
 		if (getModel() == null) {
 
-			if (roleId != -1)
+			if (roleId != -1){
 				role = roleById(roleId);
+				Hibernate.initialize(role.getAttributes());
+			}
 		}
 
 		attributeClasses = (List<VOMSAttributeDescription>) VOMSAttributeDAO
