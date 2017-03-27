@@ -29,6 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.glite.security.voms.admin.operations.VOMSPermission;
 import org.hibernate.HibernateException;
+import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.usertype.UserType;
 
 public class PermissionType implements UserType {
@@ -71,7 +72,9 @@ public class PermissionType implements UserType {
 
 	}
 
-	public Object nullSafeGet(ResultSet rs, String[] names, Object owner)
+	@Override
+	public Object nullSafeGet(ResultSet rs, String[] names,
+			SessionImplementor session, Object owner)
 			throws HibernateException, SQLException {
 
 		int bits = rs.getInt(names[0]);
@@ -83,7 +86,9 @@ public class PermissionType implements UserType {
 
 	}
 
-	public void nullSafeSet(PreparedStatement st, Object value, int index)
+	@Override
+	public void nullSafeSet(PreparedStatement st, Object value, int index,
+			SessionImplementor session)
 			throws HibernateException, SQLException {
 
 		if (value == null)

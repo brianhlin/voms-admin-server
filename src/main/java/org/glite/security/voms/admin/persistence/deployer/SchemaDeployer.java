@@ -237,6 +237,16 @@ public class SchemaDeployer {
 
 	}
 
+	private DatabaseMetaData getDatabaseMetadata(Session s) {
+
+		GetDatabaseMetadataWork w = new GetDatabaseMetadataWork();
+
+		s.doWork(w);
+
+		return w.getMetadata();
+
+	}
+
 	private boolean isOracleBackend() {
 
 		Session s = HibernateFactory.getSession();
@@ -247,7 +257,7 @@ public class SchemaDeployer {
 
 		try {
 
-			dbMetadata = s.connection().getMetaData();
+			dbMetadata = getDatabaseMetadata(s);
 			dbProductName = dbMetadata.getDatabaseProductName();
 
 		} catch (HibernateException e) {
@@ -363,19 +373,12 @@ public class SchemaDeployer {
 
 		try {
 
-			dbMetadata = s.connection().getMetaData();
+			dbMetadata = getDatabaseMetadata(s);
 
-		} catch (HibernateException e) {
+		} catch (Throwable e) {
 
 			log.error(
 					"Hibernate error accessing database metadata from Hibernate connection!",
-					e);
-			System.exit(-1);
-
-		} catch (SQLException e) {
-
-			log.error(
-					"SQL error while accessing database metadata from Hibernate connection!",
 					e);
 			System.exit(-1);
 
@@ -594,33 +597,11 @@ public class SchemaDeployer {
 
 			HibernateFactory.beginTransaction();
 
-			List<String> upgradeScript = loadUpgradeScript();
+			UpgradeDatabaseWork upgradeWork = new UpgradeDatabaseWork(
+				loadUpgradeScript());
 
-			ArrayList<Exception> exceptions = new ArrayList<Exception>();
+			HibernateFactory.getSession().doWork(upgradeWork);
 
-			log.info("Upgrading voms 2.5 database...");
-
-			Statement statement = HibernateFactory.getSession().connection()
-					.createStatement();
-
-			for (String command : upgradeScript) {
-				try {
-
-					log.info(command);
-					statement.executeUpdate(command);
-
-				} catch (SQLException e) {
-					log.error("Error while executing: " + command);
-					exceptions.add(e);
-				}
-
-			}
-
-			if (!exceptions.isEmpty()) {
-				log.error("Error upgrading voms 2.5 database!");
-				printExceptions(exceptions);
-				System.exit(2);
-			}
 
 			dropUnusedTables_2_0_x();
 			fixCaTable();
@@ -1126,7 +1107,7 @@ public class SchemaDeployer {
 
 		try {
 
-			md = HibernateFactory.getSession().connection().getMetaData();
+			md = getDatabaseMetadata(HibernateFactory.getSession());
 
 		} catch (Throwable t) {
 			log.error("Error accessing database metadata!", t);
@@ -1280,8 +1261,7 @@ public class SchemaDeployer {
 	private String getColumnType(String tableName, String columnName)
 			throws HibernateException, SQLException {
 
-		DatabaseMetaData md = HibernateFactory.getSession().connection()
-				.getMetaData();
+		DatabaseMetaData md = getDatabaseMetadata(HibernateFactory.getSession());
 
 		ResultSet columnData = md.getColumns("%", "%", tableName, columnName);
 
@@ -1324,8 +1304,7 @@ public class SchemaDeployer {
 
 	private List<String> getForeignKeyContraintNamesOnColumn(String tableName,
 			String columnName) throws SQLException {
-		DatabaseMetaData md = HibernateFactory.getSession().connection()
-				.getMetaData();
+		DatabaseMetaData md = getDatabaseMetadata(HibernateFactory.getSession());
 
 		ResultSet rs = md.getImportedKeys(null, null, tableName);
 		ArrayList<String> res = new ArrayList<String>();
