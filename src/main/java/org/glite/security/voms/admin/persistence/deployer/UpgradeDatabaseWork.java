@@ -35,9 +35,12 @@ public class UpgradeDatabaseWork implements Work {
       
       }
       
-    }catch(Throwable e){
-      LOG.error("Error executing upgrade database work: "+e.getMessage(), e);
-      throw e;
+    } catch(SQLException e) {
+        LOG.error("Error executing upgrade database work: "+e.getMessage(), e);
+        throw e;
+    } catch(Throwable e) {
+        LOG.error("Unexpected error executing upgrade database work: "+e.getMessage(), e);
+        throw new RuntimeException(e);
     }
 
   }
