@@ -30,7 +30,7 @@ package_prefix= "${package.prefix}"
 sys.path.append(os.path.join(package_prefix,"usr","sbin"))
 from voms import voms_admin_conf_dir, catalina_home
 
-os.environ.setdefault("CATALINA_HOME", "/usr/share/@TOMCAT@")
+os.environ.setdefault("CATALINA_HOME", "/usr/share/tomcat6")
 os.environ.setdefault("VOMS_ADMIN_LOCATION_VAR", "/")
 
 
