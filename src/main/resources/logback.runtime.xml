@@ -28,7 +28,7 @@
         This logger controls the MAIN voms admin log messages. Set the level to DEBUG 
         for maximum detail.  
      -->
-    <logger name="org.glite.security.voms.admin" level="INFO" />
+    <logger name="org.glite.security.voms.admin" level="DEBUG" />
     
     <!--
          This logger controls the main validation service VOMS Admin log messages.
@@ -54,11 +54,11 @@
         Set the level to INFO (or DEBUG) for the hibernate logging if you want to have more detailed log messages regarding
         the persistence management in voms-admin.
      -->
-    <logger name="org.hibernate" level="ERROR" />
+    <logger name="org.hibernate" level="DEBUG" />
     
     
-    <logger name="org.apache.struts2" level="WARN" />
-    <logger name="com.opensymphony.xwork2" level="WARN" />
+    <logger name="org.apache.struts2" level="DEBUG" />
+    <logger name="com.opensymphony.xwork2" level="DEBUG" />
     <logger name="com.opensymphony.xwork2.config.providers.XmlConfigurationProvider" level="ERROR" />
     
     
