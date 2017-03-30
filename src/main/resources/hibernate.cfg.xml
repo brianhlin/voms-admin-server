@@ -26,8 +26,6 @@
 <hibernate-configuration>
     <session-factory>
     
-    	<property name="hibernate.bytecode.provider">cglib</property>
-    	
     	<!-- Cache Configurations -->
     
         <property name="hibernate.cache.provider_class">
@@ -38,33 +36,37 @@
         <property name="hibernate.cache.use_second_level_cache">true</property>
         <property name="hibernate.cache.use_structured_entries">true</property>
     	
-    	<mapping resource="model/VOMSDBVersion.hbm.xml" />
+    	<!-- FIXME: These should be migrated to annotations as well -->
+        <mapping resource="model/ACL.hbm.xml" />
+        <mapping resource="model/AUP.hbm.xml" />
+        <mapping resource="model/AUPVersion.hbm.xml" />
+        <mapping resource="model/AUPAcceptanceRecord.hbm.xml" />
+
     	<mapping resource="model/VOMSSeqNumber.hbm.xml" />
         <mapping resource="model/VOMSAdmin.hbm.xml" />
         <mapping resource="model/VOMSCA.hbm.xml" />
         
-        <mapping resource="model/VOMSUserAttribute.hbm.xml" />
-        <mapping resource="model/VOMSGroup.hbm.xml" />
-        <mapping resource="model/VOMSGroupAttribute.hbm.xml" />
-        <mapping resource="model/VOMSRole.hbm.xml" />
-        <mapping resource="model/VOMSRoleAttribute.hbm.xml" />
-        <mapping resource="model/VOMSAttributeDescription.hbm.xml" />
+        <!-- Annotated classes -->
+        <mapping
+            class="org.glite.security.voms.admin.persistence.model.VOMSAttributeDescription" />
+        <mapping
+            class="org.glite.security.voms.admin.persistence.model.VOMSUserAttribute" />
+        <mapping
+            class="org.glite.security.voms.admin.persistence.model.VOMSGroupAttribute" />
+        <mapping
+            class="org.glite.security.voms.admin.persistence.model.VOMSRoleAttribute" />
+
         <mapping resource="model/VOMSCapability.hbm.xml" />
-        <mapping resource="model/VOMSMapping.hbm.xml" />
-        <mapping resource="model/ACL.hbm.xml" />
         <mapping resource="model/VOMembershipRequest.hbm.xml" />
         
-        <mapping resource="model/AUP.hbm.xml"/>
-        <mapping resource="model/AUPVersion.hbm.xml"/>
-        <mapping resource="model/AUPAcceptanceRecord.hbm.xml"/>
         <mapping resource="model/Tag.hbm.xml"/>
         <mapping resource="model/TagMapping.hbm.xml"/>
         
         <!--  NEW MAPPINGS -->
         
         <!--  VOMS USER & CERTIFICATE -->
-        <mapping class="org.glite.security.voms.admin.persistence.model.VOMSUser"/>
-        <mapping class="org.glite.security.voms.admin.persistence.model.Certificate"/>
+        <mapping class="org.glite.security.voms.admin.persistence.model.VOMSUser" />
+        <mapping class="org.glite.security.voms.admin.persistence.model.Certificate" />
         
         <!--  TASKS  -->
         <mapping class="org.glite.security.voms.admin.persistence.model.task.TaskType"/>
@@ -85,6 +87,12 @@
         <!-- PERSONAL INFO -->
         <mapping class="org.glite.security.voms.admin.persistence.model.personal_info.PersonalInformationType"/>
         <mapping class="org.glite.security.voms.admin.persistence.model.personal_info.PersonalInformationRecord"/>
+
+        <mapping class="org.glite.security.voms.admin.persistence.model.VOMSGroup" />
+        <mapping class="org.glite.security.voms.admin.persistence.model.VOMSRole" />
+
+        <mapping class="org.glite.security.voms.admin.persistence.model.VOMSDBVersion" />
+        <mapping class="org.glite.security.voms.admin.persistence.model.VOMSMapping" />
         
     </session-factory>
 </hibernate-configuration>
