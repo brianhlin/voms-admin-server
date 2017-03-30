@@ -35,6 +35,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.DefaultNamingStrategy;
 
 public class HibernateFactory {
 
@@ -59,7 +60,7 @@ public class HibernateFactory {
 
 			Configuration hibernateConf = new AnnotationConfiguration();
 			hibernateConf.addProperties(conf.getDatabaseProperties());
-
+                        hibernateConf.setNamingStrategy(DefaultNamingStrategy.INSTANCE);
 			sessionFactory = hibernateConf.configure().buildSessionFactory();
 
 		} catch (HibernateException e) {
