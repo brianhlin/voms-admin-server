@@ -34,7 +34,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.cfg.ImprovedNamingStrategy;
+import org.hibernate.cfg.DefaultNamingStrategy;
 
 public class HibernateFactory {
 
@@ -62,7 +62,7 @@ public class HibernateFactory {
                         log.info("before add prop ");
 			hibernateConf.addProperties(conf.getDatabaseProperties());
                         log.info("before setting naming strategy");
-                        hibernateConf.setNamingStrategy(ImprovedNamingStrategy.INSTANCE);
+                        hibernateConf.setNamingStrategy(DefaultNamingStrategy.INSTANCE);
                         log.info("before configure");
 			sessionFactory = hibernateConf.configure().buildSessionFactory();
                         log.info("after configure");
