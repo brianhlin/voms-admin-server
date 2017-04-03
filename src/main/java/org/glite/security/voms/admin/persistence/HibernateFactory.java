@@ -59,10 +59,10 @@ public class HibernateFactory {
 
                         log.info("before config obj ");
 			Configuration hibernateConf = new Configuration();
-                        log.info("before setting naming strategy");
-                        hibernateConf.setNamingStrategy(DefaultNamingStrategy.INSTANCE);
                         log.info("before add prop ");
 			hibernateConf.addProperties(conf.getDatabaseProperties());
+                        log.info("before setting naming strategy");
+                        hibernateConf.setNamingStrategy(DefaultNamingStrategy.INSTANCE);
                         log.info("before configure");
 			sessionFactory = hibernateConf.configure().buildSessionFactory();
                         log.info("after configure");
