@@ -43,7 +43,6 @@
         <mapping resource="model/VOMSAdmin.hbm.xml" />
         <mapping resource="model/VOMSCA.hbm.xml" />
         
-        <mapping resource="model/VOMSUserAttribute.hbm.xml" />
         <mapping resource="model/VOMSGroup.hbm.xml" />
         <mapping resource="model/VOMSGroupAttribute.hbm.xml" />
         <mapping resource="model/VOMSRole.hbm.xml" />
@@ -61,7 +60,9 @@
         <mapping resource="model/TagMapping.hbm.xml"/>
         
         <!--  NEW MAPPINGS -->
-        
+
+        <mapping class="org.glite.security.voms.admin.persistence.model.VOMSUserAttribute"/>
+
         <!--  VOMS USER & CERTIFICATE -->
         <mapping class="org.glite.security.voms.admin.persistence.model.Certificate"/>
         <mapping class="org.glite.security.voms.admin.persistence.model.VOMSUser"/>
