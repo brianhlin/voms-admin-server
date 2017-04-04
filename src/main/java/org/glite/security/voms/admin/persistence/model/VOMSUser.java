@@ -163,14 +163,12 @@ public class VOMSUser implements Serializable, Auditable, Comparable {
 	String suspensionReason;
 
 	/** Generic attributes mapping **/
-	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "user")
-	@org.hibernate.annotations.Cascade(value = { org.hibernate.annotations.CascadeType.DELETE_ORPHAN })
+        @OneToMany(cascade = { CascadeType.ALL }, mappedBy = "user", orphanRemoval=true)
 	Set<VOMSUserAttribute> attributes = new HashSet<VOMSUserAttribute>();
 
 	/** Membership mappings **/
-	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "user")
-	@Sort(type = SortType.NATURAL)
-	@org.hibernate.annotations.Cascade(value = { org.hibernate.annotations.CascadeType.DELETE_ORPHAN })
+        @OneToMany(cascade = { CascadeType.ALL }, mappedBy = "user", orphanRemoval=true)
+        @Sort(type = SortType.NATURAL)
 	Set<VOMSMapping> mappings = new TreeSet<VOMSMapping>();
 
 	/** User certificates **/
