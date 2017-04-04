@@ -63,8 +63,8 @@
         <!--  NEW MAPPINGS -->
         
         <!--  VOMS USER & CERTIFICATE -->
-        <mapping class="org.glite.security.voms.admin.persistence.model.VOMSUser"/>
         <mapping class="org.glite.security.voms.admin.persistence.model.Certificate"/>
+        <mapping class="org.glite.security.voms.admin.persistence.model.VOMSUser"/>
         
         <!--  TASKS  -->
         <mapping class="org.glite.security.voms.admin.persistence.model.task.TaskType"/>
