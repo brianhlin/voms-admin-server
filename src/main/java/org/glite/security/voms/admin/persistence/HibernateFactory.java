@@ -33,6 +33,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.DefaultNamingStrategy;
 
@@ -58,7 +59,7 @@ public class HibernateFactory {
 		try {
 
                         log.info("before config obj ");
-			Configuration hibernateConf = new Configuration();
+			Configuration hibernateConf = new AnnotationConfiguration();
                         log.info("before add prop ");
 			hibernateConf.addProperties(conf.getDatabaseProperties());
                         log.info("before setting naming strategy");
