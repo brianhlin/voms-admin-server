@@ -26,16 +26,15 @@
 <struts>
 
         <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
-	 
-	<constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.PrefixBasedActionMapper"/>
-	<constant name="struts.mapper.prefixMapping" value="/apiv2:struts,/shared:struts,/rest:rest,/acl:struts,/admin:struts,/ajax:struts,/attribute:struts,/aup:struts,/configuration:struts,/group:struts,/home:struts,/register:struts,/role:struts,/search:struts,/sibling:struts,/user:struts,:struts"/>
-	
-	<constant name="struts.devMode" value="false" />
+        <constant name="struts.action.excludePattern" value="/services,/services/.*,/,/index.jsp" />
+
 	<constant name="struts.configuration.xml.reload" value="false" />
 	<constant name="struts.ui.theme" value="css_xhtml" />
 	<constant name="struts.convention.classes.reload" value="true" />
 	
+        <constant name="struts.convention.default.parent.package" value="base" />
 	<constant name="struts.convention.package.locators.basePackage" value="org.glite.security.voms.admin.view.actions"/>
+
 	<constant name="struts.convention.result.path" value="/WEB-INF/p"/>
 	
 	<package name="base" extends="json-default">
