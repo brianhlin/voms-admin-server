@@ -25,8 +25,7 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 
-        <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
-        <constant name="struts.mapper.action.prefix.enabled" value="true"/>
+        <constant name="struts.action.excludePattern" value="/services,/services/.*,/,/index.jsp" />
 
 	<constant name="struts.configuration.xml.reload" value="false" />
 	<constant name="struts.ui.theme" value="css_xhtml" />
