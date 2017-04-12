@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.glite.security.voms.admin.apiv2.VOMSUserJSON;
 import org.glite.security.voms.admin.configuration.VOMSConfiguration;
 import org.glite.security.voms.admin.configuration.VOMSConfigurationConstants;
@@ -655,6 +656,7 @@ public class VOMSUserDAO {
 
 		u.getCertificates().clear();
 		u.getMappings().clear();
+                log.debug("BLIN: user attributes " + StringUtils.join(u.getAttributes(), ", "));
 		u.getAttributes().clear();
 		u.getAupAcceptanceRecords().clear();
 		u.getPersonalInformations().clear();
