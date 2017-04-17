@@ -26,7 +26,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
 
 import org.glite.security.voms.service.attributes.AttributeClass;
@@ -38,7 +37,7 @@ public abstract class VOMSBaseAttribute implements VomsAttributeValue,
 
 	@Id
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="a_id")
+	@JoinColumn(name="a_id")
 	VOMSAttributeDescription attributeDescription;
 
 	@Column(name="a_value")
