@@ -39,7 +39,7 @@ public abstract class VOMSBaseAttribute implements VomsAttributeValue,
 	@Id
 	@ManyToOne
 	@PrimaryKeyJoinColumn(name="a_id")
-	VOMSAttributeDescription attributeDescription;
+	VOMSAttributeDescription a_id;
 	
 	@Column(name="a_value")
 	String value;
@@ -67,19 +67,19 @@ public abstract class VOMSBaseAttribute implements VomsAttributeValue,
 
 	protected VOMSBaseAttribute(VOMSAttributeDescription desc, String value) {
 
-		this.attributeDescription = desc;
+		this.a_id = desc;
 		this.value = value;
 	}
 
 	public VOMSAttributeDescription getAttributeDescription() {
 
-		return attributeDescription;
+		return a_id;
 	}
 
 	public void setAttributeDescription(
-			VOMSAttributeDescription attributeDescription) {
+			VOMSAttributeDescription a_id) {
 
-		this.attributeDescription = attributeDescription;
+		this.a_id = a_id;
 	}
 
 	public void setContext(String context) {
@@ -99,11 +99,11 @@ public abstract class VOMSBaseAttribute implements VomsAttributeValue,
 
 	public String getName() {
 
-		return attributeDescription.getName();
+		return a_id.getName();
 	}
 
 	public void setName(String name) {
 
-		attributeDescription.setName(name);
+		a_id.setName(name);
 	}
 }
