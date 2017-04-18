@@ -23,7 +23,7 @@
 <h1>Create a new user:</h1>
 
 <p>All the fields below are required.</p>
-<s:form validate="true" action="create-user">
+<s:form validate="true" action="create">
 		<s:token/>
 		
 		<s:textfield name="theName" label="Given name" size="40"
