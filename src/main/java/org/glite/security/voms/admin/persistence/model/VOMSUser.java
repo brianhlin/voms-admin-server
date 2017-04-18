@@ -163,7 +163,7 @@ public class VOMSUser implements Serializable, Auditable, Comparable {
 	String suspensionReason;
 
 	/** Generic attributes mapping **/
-	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "user")
+	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "u_id")
 	@org.hibernate.annotations.Cascade(value = { org.hibernate.annotations.CascadeType.DELETE_ORPHAN })
 	Set<VOMSUserAttribute> attributes = new HashSet<VOMSUserAttribute>();
 

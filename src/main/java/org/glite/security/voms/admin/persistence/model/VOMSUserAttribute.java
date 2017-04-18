@@ -36,19 +36,18 @@ public class VOMSUserAttribute extends VOMSBaseAttribute {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-        @Column(name="u_id")
 	@PrimaryKeyJoinColumn
 	@ManyToOne(targetEntity=VOMSUser.class)
-	public VOMSUser user;
+	public VOMSUser u_id;
 
 	public VOMSUser getUser() {
 
-		return user;
+		return u_id;
 	}
 
-	public void setUser(VOMSUser user) {
+	public void setUser(VOMSUser u_id) {
 
-		this.user = user;
+		this.u_id = u_id;
 	}
 
 	public VOMSUserAttribute() {
