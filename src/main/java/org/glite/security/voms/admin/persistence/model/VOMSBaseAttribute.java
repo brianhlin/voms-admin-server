@@ -26,7 +26,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
 
 import org.glite.security.voms.service.attributes.AttributeClass;
@@ -38,8 +37,8 @@ public abstract class VOMSBaseAttribute implements VomsAttributeValue,
 
 	@Id
 	@ManyToOne
-	@PrimaryKeyJoinColumn(name="a_id")
-	VOMSAttributeDescription a_id;
+	@JoinColumn(name="a_id")
+	VOMSAttributeDescription attributeDescription;
 	
 	@Column(name="a_value")
 	String value;
@@ -67,19 +66,19 @@ public abstract class VOMSBaseAttribute implements VomsAttributeValue,
 
 	protected VOMSBaseAttribute(VOMSAttributeDescription desc, String value) {
 
-		this.a_id = desc;
+		this.attributeDescription = desc;
 		this.value = value;
 	}
 
 	public VOMSAttributeDescription getAttributeDescription() {
 
-		return a_id;
+		return attributeDescription;
 	}
 
 	public void setAttributeDescription(
-			VOMSAttributeDescription a_id) {
+			VOMSAttributeDescription attributeDescription) {
 
-		this.a_id = a_id;
+		this.attributeDescription = attributeDescription;
 	}
 
 	public void setContext(String context) {
@@ -99,11 +98,11 @@ public abstract class VOMSBaseAttribute implements VomsAttributeValue,
 
 	public String getName() {
 
-		return a_id.getName();
+		return attributeDescription.getName();
 	}
 
 	public void setName(String name) {
 
-		a_id.setName(name);
+		attributeDescription.setName(name);
 	}
 }

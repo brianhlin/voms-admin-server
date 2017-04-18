@@ -19,11 +19,10 @@
  */
 package org.glite.security.voms.admin.persistence.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -36,18 +35,18 @@ public class VOMSUserAttribute extends VOMSBaseAttribute {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@PrimaryKeyJoinColumn
+	@JoinColumn
 	@ManyToOne(targetEntity=VOMSUser.class)
-	public VOMSUser u_id;
+	public VOMSUser user;
 
 	public VOMSUser getUser() {
 
-		return u_id;
+		return user;
 	}
 
-	public void setUser(VOMSUser u_id) {
+	public void setUser(VOMSUser user) {
 
-		this.u_id = u_id;
+		this.user = user;
 	}
 
 	public VOMSUserAttribute() {
