@@ -26,6 +26,7 @@
 <struts>
 
         <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+        <constant name="struts.mapper.action.prefix.enabled" value="true"/>
 
 	<constant name="struts.configuration.xml.reload" value="false" />
 	<constant name="struts.ui.theme" value="css_xhtml" />
