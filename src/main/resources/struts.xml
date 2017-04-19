@@ -79,6 +79,7 @@
                 <interceptor-ref name="alias"/>
                 <interceptor-ref name="i18n"/>
                 <interceptor-ref name="params">
+                    <param name="acceptParamNames">(action:)?\w+((\.\w+)|(\-\w+)|(\[\d+\])|(\(\d+\))|(\['(\w|[\u4e00-\u9fa5])+'\])|(\('(\w|[\u4e00-\u9fa5])+'\)))*</param>
                     <param name="excludeParams">dojo\..*,^struts\..*,token</param>
                 </interceptor-ref>
                 
@@ -183,6 +184,7 @@
                 <interceptor-ref name="actionMappingParams"/>
                 
                 <interceptor-ref name="params">
+                    <param name="acceptParamNames">(action:)?\w+((\.\w+)|(\-\w+)|(\[\d+\])|(\(\d+\))|(\['(\w|[\u4e00-\u9fa5])+'\])|(\('(\w|[\u4e00-\u9fa5])+'\)))*</param>
                     <param name="excludeParams">dojo\..*,^struts\..*</param>
                 </interceptor-ref>
                 
