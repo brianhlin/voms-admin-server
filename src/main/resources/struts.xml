@@ -27,7 +27,7 @@
 
         <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
         <constant name="struts.action.excludePattern" value="/services,/services/.*,/,/index.jsp" />
-        <constant name"struts.allowed.action.names" value="[a-zA-Z0-9._!/\-]*"/>
+        <constant name"struts.allowed.action.names" value="[a-z]*[A-Z]*[0-9]*[.\-_!/]*[a-z]*"/>
 
 	<constant name="struts.configuration.xml.reload" value="false" />
 	<constant name="struts.ui.theme" value="css_xhtml" />
