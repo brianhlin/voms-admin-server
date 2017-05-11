@@ -33,11 +33,13 @@
 				<param name="sequence">VOMS_ADMIN_SEQ</param>
 			</generator>
 		</id>
-		
-		<property name="dn" type="string" column="dn" not-null="true" unique-key="true"/>
+
+                <natural-id>
+		  <property name="dn" type="string" column="dn" not-null="true"/>
+		  <many-to-one name="ca" column="ca" class="org.glite.security.voms.admin.persistence.model.VOMSCA" not-null="true"/>
+                </natural-id>
+
 		<property name="emailAddress" type="string" column="email_address"/>
-		
-		<many-to-one name="ca" column="ca" class="org.glite.security.voms.admin.persistence.model.VOMSCA" not-null="true" unique-key="true"/>
     
         <set name="tagMappings" inverse="true" cascade="all-delete-orphan">
           <key column="admin_id" on-delete="cascade"/>
