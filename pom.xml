@@ -20,7 +20,7 @@
         <build.settings>src/config/emi-build-settings.xml</build.settings>
 		
 		<!-- Dependencies versions -->
-		<struts.version>2.3.32</struts.version>
+		<struts.version>2.3.34</struts.version>
 		<hibernate.version>4.2.8.Final</hibernate.version>
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<axis.version>1.2.1</axis.version>
